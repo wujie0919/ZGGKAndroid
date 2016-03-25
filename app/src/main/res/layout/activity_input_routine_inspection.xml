@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_light"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/layout_title"
+        layout="@layout/layout_title" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/sl_btn_blue"
+        android:text="保存"
+        android:textColor="@color/white" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/btn_save"
+        android:layout_below="@id/layout_title"
+        android:layout_margin="5dp"
+        android:background="@drawable/sp_bg_corners"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="路线："
+                    android:textSize="@dimen/txtSize13" />
+
+                <TextView
+                    android:id="@+id/tv_route"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/txtSize13" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.2"
+                    android:text="日期："
+                    android:textSize="@dimen/txtSize13" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="设施分类:" />
+
+                    <TextView
+                        android:id="@+id/tv_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:padding="5dp"
+                        android:text="沥青路面"
+                        android:textSize="@dimen/txtSize13" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <include layout="@layout/line_horizontal" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="问题类型："
+                        android:textSize="@dimen/txtSize13" />
+
+                    <RadioGroup
+                        android:id="@+id/rg_problemType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+                        <RadioButton
+                            android:id="@+id/rb_disease"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="病害"
+                            android:textSize="@dimen/txtSize13" />
+
+                        <RadioButton
+                            android:id="@+id/rb_cleaning"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="保洁"
+                            android:textSize="@dimen/txtSize13" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <include layout="@layout/line_horizontal" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="5dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="路线方向："
+                        android:textSize="@dimen/txtSize13" />
+
+                    <RadioGroup
+                        android:id="@+id/rg_orientation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+                        <RadioButton
+                            android:id="@+id/rb_up"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="上行"
+                            android:textSize="@dimen/txtSize13" />
+
+                        <RadioButton
+                            android:id="@+id/rb_down"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="下行"
+                            android:textSize="@dimen/txtSize13" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:id="@+id/tv_stake"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/stake_range"
+                        android:textSize="@dimen/txtSize14" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_laneLocation"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <include layout="@layout/line_horizontal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="车道位置"
+                    android:textSize="@dimen/txtSize14" />
+
+                <ImageView
+                    android:id="@+id/iv_more_lane"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:src="@drawable/ico_arrow_right" />
+
+                <TextView
+                    android:id="@+id/tv_laneLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/iv_more_lane"
+                    android:textSize="@dimen/txtSize14" />
+            </RelativeLayout>
+
+            <include layout="@layout/line_horizontal" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="路线桩号："
+                    android:textSize="@dimen/txtSize13" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="K"
+                            android:textSize="@dimen/txtSize13" />
+
+                        <EditText
+                            android:id="@+id/et_landmark1"
+                            style="@style/et_orange"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+"
+                            android:textSize="@dimen/txtSize13" />
+
+                        <EditText
+                            android:id="@+id/et_landmark2"
+                            style="@style/et_orange"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_getzh"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="获取桩号"
+                    android:textSize="@dimen/txtSize14"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/sl_btn_blue" />
+            </LinearLayout>
+
+            <include layout="@layout/line_horizontal" />
+
+            <LinearLayout
+                android:id="@+id/layout_input1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <RelativeLayout
+                    android:id="@+id/layout_structure"
+                    style="@style/layout_style" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="桥/隧/涵/边坡："
+                        android:textSize="@dimen/txtSize14" />
+
+                    <ImageView
+                        android:id="@+id/iv_more_bridge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="TRUE"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_arrow_right" />
+
+                    <TextView
+                        android:id="@+id/tv_structureName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@id/iv_more_bridge"
+                        android:textSize="@dimen/txtSize14" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_horizontal" />
+
+                <RelativeLayout
+                    android:id="@+id/layout_component"
+                    style="@style/layout_style" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="部件："
+                        android:textSize="@dimen/txtSize14" />
+
+                    <ImageView
+                        android:id="@+id/iv_more_component"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="TRUE"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_arrow_right" />
+
+                    <TextView
+                        android:id="@+id/tv_component"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@id/iv_more_component"
+                        android:textSize="@dimen/txtSize14" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_horizontal" />
+
+                <RelativeLayout
+                    android:id="@+id/layout_material"
+                    style="@style/layout_style" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="形式/材料"
+                        android:textSize="@dimen/txtSize14" />
+
+                    <ImageView
+                        android:id="@+id/iv_more_material"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="TRUE"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_arrow_right" />
+
+                    <TextView
+                        android:id="@+id/tv_material"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@id/iv_more_material"
+                        android:textSize="@dimen/txtSize14" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_horizontal" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_diseaseType"
+                style="@style/layout_style" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="病害类型"
+                    android:textSize="@dimen/txtSize14" />
+
+                <ImageView
+                    android:id="@+id/iv_more_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="TRUE"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ico_arrow_right" />
+
+                <TextView
+                    android:id="@+id/tv_diseaseType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/iv_more_type"
+                    android:textSize="@dimen/txtSize14" />
+            </RelativeLayout>
+
+            <include layout="@layout/line_horizontal" />
+
+            <LinearLayout
+                android:id="@+id/layout_input2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <RelativeLayout
+                    android:id="@+id/layout_component2"
+                    style="@style/layout_style" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="构件："
+                        android:textSize="@dimen/txtSize14" />
+
+                    <ImageView
+                        android:id="@+id/iv_more_component2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="TRUE"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_arrow_right" />
+
+                    <TextView
+                        android:id="@+id/tv_component2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@id/iv_more_component2"
+                        android:textSize="@dimen/txtSize14" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_horizontal" />
+
+                <RelativeLayout
+                    android:id="@+id/layout_parts"
+                    style="@style/layout_style" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="部位："
+                        android:textSize="@dimen/txtSize14" />
+
+                    <ImageView
+                        android:id="@+id/iv_more_parts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="TRUE"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_arrow_right" />
+
+                    <TextView
+                        android:id="@+id/tv_parts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@id/iv_more_parts"
+                        android:textSize="@dimen/txtSize14" />
+                </RelativeLayout>
+
+                <include layout="@layout/line_horizontal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_input3"
+                style="@style/layout_style"
+                android:orientation="horizontal"
+                android:paddingBottom="0dp"
+                android:paddingTop="5dp"
+                android:visibility="gone" >
+
+                <TableLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:shrinkColumns="1"
+                    android:stretchColumns="1" >
+
+                    <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            style="@style/tv_common"
+                            android:text="百分比:" />
+
+                        <EditText
+                            android:id="@+id/et_percentage"
+                            style="@style/et_orange"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+
+                        <TextView
+                            style="@style/tv_common"
+                            android:text=" %  " />
+                    </TableRow>
+                </TableLayout>
+
+                <TableLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:shrinkColumns="1"
+                    android:stretchColumns="1" >
+
+                    <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            style="@style/tv_common"
+                            android:text="角度:" />
+
+                        <EditText
+                            android:id="@+id/et_angle"
+                            style="@style/et_orange"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+
+                        <TextView
+                            style="@style/tv_common"
+                            android:text=" 度  " />
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_goneWithClean"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible" >
+
+                <LinearLayout
+                    style="@style/layout_style"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
+
+                    <LinearLayout
+                        android:id="@+id/ll_lenght"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/tv_lenghtTag"
+                            style="@style/tv_common"
+                            android:text="长:" />
+
+                        <EditText
+                            android:id="@+id/et_long"
+                            style="@style/et_orange"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal" />
+
+                        <TextView
+                            android:id="@+id/tv_lenghtUnit"
+                            style="@style/tv_common"
+                            android:text="m" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_width"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/tv_widthTag"
+                            style="@style/tv_common"
+                            android:text="宽:" />
+
+                        <EditText
+                            android:id="@+id/et_width"
+                            style="@style/et_orange"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal" />
+
+                        <TextView
+                            android:id="@+id/tv_widthUnit"
+                            style="@style/tv_common"
+                            android:text="m" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_deep"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/tv_deepTag"
+                            style="@style/tv_common"
+                            android:text="深:" />
+
+                        <EditText
+                            android:id="@+id/et_deep"
+                            style="@style/et_orange"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal" />
+
+                        <TextView
+                            android:id="@+id/tv_deepUnit"
+                            style="@style/tv_common"
+                            android:text="m  " />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/layout_style"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="0dp" >
+
+                    <LinearLayout
+                        android:id="@+id/ll_area"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/tv_areaTag"
+                            style="@style/tv_common"
+                            android:text="面积:" />
+
+                        <EditText
+                            android:id="@+id/et_area"
+                            style="@style/et_orange"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal" />
+
+                        <TextView
+                            android:id="@+id/tv_areaUnit"
+                            style="@style/tv_common"
+                            android:text="㎡" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/tv_countTag"
+                            style="@style/tv_common"
+                            android:text="数量:" />
+
+                        <EditText
+                            android:id="@+id/et_count"
+                            style="@style/et_orange"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+
+                        <TextView
+                            android:id="@+id/tv_countUnit"
+                            style="@style/tv_common"
+                            android:text="处" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_volume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/tv_volumeTag"
+                            style="@style/tv_common"
+                            android:text="体积:" />
+
+                        <EditText
+                            android:id="@+id/et_volume"
+                            style="@style/et_orange"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal" />
+
+                        <TextView
+                            android:id="@+id/tv_volumeUnit"
+                            style="@style/tv_common"
+                            android:text="m³" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_scale"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" >
+
+                    <include layout="@layout/line_horizontal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="标度"
+                        android:textSize="@dimen/txtSize14" />
+
+                    <ImageView
+                        android:id="@+id/iv_more_scale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:src="@drawable/ico_arrow_right" />
+
+                    <TextView
+                        android:id="@+id/tv_scale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@id/iv_more_scale"
+                        android:textSize="@dimen/txtSize14" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_level"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible" >
+
+                    <include layout="@layout/line_horizontal" />
+
+                    <TextView
+                        android:id="@+id/tv_level"
+                        style="@style/tv_common"
+                        android:layout_centerVertical="true"
+                        android:text="严重程度：" />
+
+                    <RadioGroup
+                        android:id="@+id/rg_level"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/tv_level"
+                        android:orientation="horizontal" >
+
+                        <RadioButton
+                            android:id="@+id/rb_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="轻"
+                            android:textSize="@dimen/txtSize14" />
+
+                        <RadioButton
+                            android:id="@+id/rb_middle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="中"
+                            android:textSize="@dimen/txtSize14" />
+
+                        <RadioButton
+                            android:id="@+id/rb_serious"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="重"
+                            android:textSize="@dimen/txtSize14" />
+                    </RadioGroup>
+                </RelativeLayout>
+
+                <include layout="@layout/line_horizontal" />
+
+                <RelativeLayout
+                    android:id="@+id/layout_nature"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/tv_nature"
+                        style="@style/tv_common"
+                        android:layout_centerVertical="true"
+                        android:text="病害性质：" />
+
+                    <RadioGroup
+                        android:id="@+id/rg_nature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/tv_nature"
+                        android:orientation="horizontal" >
+
+                        <RadioButton
+                            android:id="@+id/rb_newDisease"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="新病害"
+                            android:textSize="@dimen/txtSize14" />
+
+                        <RadioButton
+                            android:id="@+id/rb_oldDisease"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="旧病害"
+                            android:textSize="@dimen/txtSize14" />
+
+                        <RadioButton
+                            android:id="@+id/rb_againDisease"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:singleLine="true"
+                            android:text="修复后损坏"
+                            android:textSize="@dimen/txtSize14" />
+                    </RadioGroup>
+                </RelativeLayout>
+
+                <include layout="@layout/line_horizontal" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_curingSuggest"
+                style="@style/layout_style" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="养护建议"
+                    android:textSize="@dimen/txtSize14" />
+
+                <ImageView
+                    android:id="@+id/iv_more_curing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="TRUE"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ico_arrow_right" />
+
+                <TextView
+                    android:id="@+id/tv_curingSuggest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/iv_more_curing"
+                    android:textSize="@dimen/txtSize14" />
+            </RelativeLayout>
+
+            <include layout="@layout/line_horizontal" />
+
+            <LinearLayout
+                style="@style/layout_style"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp" >
+
+                <TextView
+                    style="@style/tv_common"
+                    android:text="位置描述：" />
+
+                <EditText
+                    android:id="@+id/et_locationDesc"
+                    style="@style/et_orange"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <include layout="@layout/line_horizontal" />
+
+            <LinearLayout
+                style="@style/layout_style"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp" >
+
+                <TextView
+                    style="@style/tv_common"
+                    android:text="初判成因：" />
+
+                <EditText
+                    android:id="@+id/et_cause"
+                    style="@style/et_orange"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <include layout="@layout/line_horizontal" />
+
+            <TextView
+                style="@style/tv_common"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="现场照片：" />
+
+            <com.zggk.zggkandroid.widget.MyGridView
+                android:id="@+id/gv_damageImg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:horizontalSpacing="5dp"
+                android:numColumns="auto_fit"
+                android:verticalSpacing="5dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

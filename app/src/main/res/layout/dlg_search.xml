@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="查询条件" />
+
+    <include layout="@layout/line_horizontal" />
+    <RelativeLayout
+        android:id="@+id/layout_line"
+        style="@style/layout_style" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="路线"
+            android:textSize="@dimen/txtSize14" />
+
+        <ImageView
+            android:id="@+id/iv_more_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="TRUE"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ico_arrow_right" />
+
+        <TextView
+            android:id="@+id/tv_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/iv_more_line"
+            android:textSize="@dimen/txtSize14" />
+    </RelativeLayout>
+
+    <include layout="@layout/line_horizontal" />
+
+    <LinearLayout
+        android:id="@+id/layout_stake"
+        style="@style/layout_style">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="桩号范围"
+            android:textSize="@dimen/txtSize14" />
+
+        <EditText
+            android:id="@+id/et_startStake"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sl_edittext"
+            android:inputType="numberDecimal"
+            android:padding="5dp"
+            android:singleLine="true"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="~" />
+
+        <EditText
+            android:id="@+id/et_endStake"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sl_edittext"
+            android:inputType="numberDecimal"
+            android:padding="5dp"
+            android:singleLine="true"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textSize="14sp"
+        android:id="@+id/tx_zhuangHao"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"/>
+
+    <include layout="@layout/line_horizontal" />
+
+    <LinearLayout
+        android:id="@+id/layout_date"
+        style="@style/layout_style" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="日期"
+            android:textSize="@dimen/txtSize14" />
+
+        <TextView
+            android:id="@+id/tv_startDate"
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:background="@drawable/sl_edittext"
+            android:gravity="center"
+            android:textSize="@dimen/txtSize14" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="~" />
+
+        <TextView
+            android:id="@+id/tv_endDate"
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:background="@drawable/sl_edittext"
+            android:gravity="center"
+            android:textSize="@dimen/txtSize14" />
+    </LinearLayout>
+
+    <include layout="@layout/line_horizontal" />
+
+    <LinearLayout style="@style/layout_style" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="病害类型"
+            android:textSize="@dimen/txtSize14" />
+
+        <EditText
+            android:id="@+id/et_dssType"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sl_edittext"
+            android:padding="5dp"
+            android:singleLine="true"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <include layout="@layout/line_horizontal" />
+
+    <RelativeLayout
+        android:id="@+id/layout_facilityType"
+        style="@style/layout_style" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="设施分类"
+            android:textSize="@dimen/txtSize14" />
+
+        <ImageView
+            android:id="@+id/iv_more_facilityType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="TRUE"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ico_arrow_right" />
+
+        <TextView
+            android:id="@+id/tv_facilityType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/iv_more_facilityType"
+            android:textSize="@dimen/txtSize14" />
+    </RelativeLayout>
+
+    <include layout="@layout/line_horizontal" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/sl_btn_white"
+            android:text="取消"
+            android:textColor="@color/blue_light" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="fill_parent"
+            android:background="@android:color/darker_gray" />
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/sl_btn_white"
+            android:text="确定"
+            android:textColor="@color/blue_light" />
+    </LinearLayout>
+
+</LinearLayout>

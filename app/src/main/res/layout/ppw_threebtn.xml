@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    android:background="@color/black"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_ppwItem0"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="全选"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txtSize14" />
+
+    <include layout="@layout/line_horizontal" />
+
+    <TextView
+        android:id="@+id/tv_ppwItem1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="设置"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txtSize14" />
+
+    <include layout="@layout/line_horizontal" />
+
+    <TextView
+        android:id="@+id/tv_ppwItem2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="退出登录"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txtSize14" />
+
+</LinearLayout>

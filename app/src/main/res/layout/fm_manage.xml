@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:orientation="vertical" >
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/gray_light"
+        android:orientation="vertical" >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/gray_dark"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="基础设置"
+            android:textSize="@dimen/txtSize12" />
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:shrinkColumns="1"
+            android:stretchColumns="1" >
+
+            <TableRow
+                android:id="@+id/layout_updateVer"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sl_btn_white"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp" >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/ic_updata_ver" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tv_updateVer"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center_vertical"
+                        android:text="检查更新"
+                        android:textSize="@dimen/txtSize14" />
+
+                    <include layout="@layout/line_horizontal" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/layout_settingParams"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sl_btn_white"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp" >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/ic_setting_params" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tv_settingParams"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center_vertical"
+                        android:text="参数设置"
+                        android:textSize="@dimen/txtSize14" />
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+
+        <include layout="@layout/line_horizontal" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_dark"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="数据更新"
+            android:textSize="@dimen/txtSize12" />
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:shrinkColumns="1"
+            android:stretchColumns="1" >
+
+            <TableRow
+                android:id="@+id/layout_updateDisease"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sl_btn_white"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/ic_update_disease" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tv_updateDisease"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center_vertical"
+                        android:text="更新病害信息"
+                        android:textSize="@dimen/txtSize14" />
+
+                    <include layout="@layout/line_horizontal" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/layout_updateBase"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sl_btn_white"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp" >
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/ic_update_base" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/tv_updateBase"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center_vertical"
+                        android:text="更新基础信息"
+                        android:textSize="@dimen/txtSize14" />
+
+                    <include layout="@layout/line_horizontal" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/layout_updateGIS"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sl_btn_white"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp" >
+
+                <!--<ImageView-->
+                <!--android:layout_width="30dp"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:layout_margin="10dp"-->
+                <!--android:src="@drawable/ic_update_base" />-->
+
+                <!--<LinearLayout-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical" >-->
+
+                <!--<TextView-->
+                <!--android:id="@+id/tv_updateGIS"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:text="更新GIS数据"-->
+                <!--android:textSize="@dimen/txtSize14" />-->
+                <!--</LinearLayout>-->
+            </TableRow>
+        </TableLayout>
+
+        <include layout="@layout/line_horizontal" />
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_exit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/sl_btn_blue"
+        android:text="退出"
+        android:textColor="@android:color/white" />
+</RelativeLayout>
+

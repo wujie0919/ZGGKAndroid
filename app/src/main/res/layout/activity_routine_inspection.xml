@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_light"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/layout_title"
+        layout="@layout/layout_title" />
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/sl_btn_blue"
+        android:text="确定"
+        android:textColor="@android:color/white" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/btn_ok"
+        android:layout_below="@id/layout_title"
+        android:layout_margin="5dp"
+        android:background="@drawable/sp_bg_corners"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="巡查路线："
+                android:textSize="@dimen/txtSize14" />
+
+            <RelativeLayout
+                android:id="@+id/layout_route"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_route"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/txtSize14" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/sl_btn_more" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <include layout="@layout/line_horizontal" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="巡查日期："
+                android:textSize="@dimen/txtSize14" />
+
+            <RelativeLayout
+                android:id="@+id/layout_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/txtSize14" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/sl_btn_more"
+                    android:id="@+id/image_data"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <include layout="@layout/line_horizontal" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="巡查时段："
+                android:textSize="@dimen/txtSize14" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_vertical"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp" >
+
+                <TextView
+                    android:id="@+id/inspTimeIntvlStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/sp_et_normal"
+                    android:padding="5dp"
+                    android:text="9:00"
+                    android:textSize="@dimen/txtSize14" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 时- "
+                    android:textSize="@dimen/txtSize14" />
+
+                <TextView
+                    android:id="@+id/inspTimeIntvlEnd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/sp_et_normal"
+                    android:padding="5dp"
+                    android:text="12:00"
+                    android:textSize="@dimen/txtSize14" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 时"
+                    android:textSize="@dimen/txtSize14" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <include layout="@layout/line_horizontal" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp" >
+
+            <TextView
+                android:layout_width="96dp"
+                android:layout_height="wrap_content"
+
+                android:text="巡查人："
+                android:textSize="@dimen/txtSize14" />
+
+            <EditText
+                android:id="@+id/et_patroler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/sl_edittext"
+                android:inputType="text"
+                android:padding="5dp"
+                android:textSize="@dimen/txtSize14" />
+        </LinearLayout>
+
+        <include layout="@layout/line_horizontal" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="巡查路段："
+                android:textSize="@dimen/txtSize14" />
+
+            <EditText
+                android:id="@+id/et_patrolSection"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/sl_edittext"
+                android:padding="5dp"
+                android:textSize="@dimen/txtSize14" />
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_weight="0"
+                android:id="@+id/btn_selectSection"/>
+        </LinearLayout>
+
+        <include layout="@layout/line_horizontal" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="巡查里程："
+                android:textSize="@dimen/txtSize14" />
+
+            <EditText
+                android:id="@+id/et_patrolKm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/sl_edittext"
+                android:padding="5dp"
+                android:textSize="@dimen/txtSize14" />
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_weight="0"
+                android:id="@+id/btn_selectPatrolKm"/>
+        </LinearLayout>
+
+        <include layout="@layout/line_horizontal" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="巡查车牌："
+                android:textSize="@dimen/txtSize14" />
+
+            <EditText
+                android:id="@+id/et_patrolCarNum"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/sl_edittext"
+                android:padding="5dp"
+                android:textSize="@dimen/txtSize14" />
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_weight="0"
+                android:id="@+id/btn_selectCarNum"/>
+        </LinearLayout>
+
+        <include layout="@layout/line_horizontal" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="天气情况："
+                android:textSize="@dimen/txtSize14" />
+
+            <EditText
+                android:id="@+id/et_weather"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/sl_edittext"
+                android:padding="5dp"
+                android:text="晴"
+                android:textSize="@dimen/txtSize14" />
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_weight="0"
+                android:id="@+id/btn_selectWeather"/>
+        </LinearLayout>
+
+        <include layout="@layout/line_horizontal" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="营运公司："
+                android:textSize="@dimen/txtSize14" />
+
+            <TextView
+                android:id="@+id/tv_manageUnits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="河源分公司"
+                android:textSize="@dimen/txtSize14" />
+        </LinearLayout>
+        <include layout="@layout/line_horizontal" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="养护单位："
+                android:textSize="@dimen/txtSize14" />
+
+            <TextView
+                android:id="@+id/tv_curingUnits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="河源能达"
+                android:textSize="@dimen/txtSize14" />
+        </LinearLayout>
+        <include layout="@layout/line_horizontal" />
+    </LinearLayout>
+
+</RelativeLayout>

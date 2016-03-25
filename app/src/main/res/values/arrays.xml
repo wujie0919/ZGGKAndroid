@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="array_times">
+        <item>00:00</item>
+        <item>01:00</item>
+        <item>02:00</item>
+        <item>03:00</item>
+        <item>04:00</item>
+        <item>05:00</item>
+        <item>06:00</item>
+        <item>07:00</item>
+        <item>08:00</item>
+        <item>09:00</item>
+        <item>10:00</item>
+        <item>11:00</item>
+        <item>12:00</item>
+        <item>13:00</item>
+        <item>14:00</item>
+        <item>15:00</item>
+        <item>16:00</item>
+        <item>17:00</item>
+        <item>18:00</item>
+        <item>19:00</item>
+        <item>20:00</item>
+        <item>21:00</item>
+        <item>22:00</item>
+        <item>23:00</item>
+    </string-array>
+    <string-array name="sheshiType">
+        <item>沥青路面</item>
+        <item>水泥路面</item>
+        <item>路基</item>
+        <item>沿线设施</item>
+        <item>绿化</item>
+    </string-array>
+    <string-array name="laneLocation_up">
+        <item>上行行车道A</item>
+        <item>上行行车道E</item>
+        <item>上行行车道G</item>
+        <item>上行行车道C</item>
+        <item>上行路肩R</item>
+        <item>上行加宽I</item>
+    </string-array>
+    <string-array name="laneLocation_down">
+        <item>下行行车道B</item>
+        <item>下行行车道F</item>
+        <item>下行行车道H</item>
+        <item>下行行车道D</item>
+        <item>下行路肩L</item>
+        <item>下行加宽J</item>
+    </string-array>
+
+</resources>
