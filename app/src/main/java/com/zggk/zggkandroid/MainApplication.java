@@ -65,10 +65,10 @@ public class MainApplication extends Application {
 		DisplayMetrics dm = getResources().getDisplayMetrics();
 		mScreenW = dm.widthPixels;
 		mScreenH = dm.heightPixels;
-		ImageUrl="http://128.21.8.7:7001/mems/phoneservlt";
-		WEB_SERVER_URL= "http://128.21.8.7:7001/mems/xfservices/MyWebService";
-//		ImageUrl = "http://121.8.234.83:17001/mems/phoneservlt";
-//		WEB_SERVER_URL = "http://121.8.234.83:17001/mems/xfservices/MyWebService";
+//		ImageUrl="http://128.21.8.7:7001/mems/phoneservlt";
+//		WEB_SERVER_URL= "http://128.21.8.7:7001/mems/xfservices/MyWebService";
+		ImageUrl = "http://121.8.234.83:17001/mems/phoneservlt";
+		WEB_SERVER_URL = "http://121.8.234.83:17001/mems/xfservices/MyWebService";
 		initUIL();
 
 		length= SpUtils.getString("length","");
