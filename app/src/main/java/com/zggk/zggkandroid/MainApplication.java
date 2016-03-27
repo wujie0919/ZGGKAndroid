@@ -16,6 +16,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.zggk.zggkandroid.common.CrashHandler;
 import com.zggk.zggkandroid.common.DBHelperSingleton;
 import com.zggk.zggkandroid.common.SpUtils;
 import com.zggk.zggkandroid.entity.AccountListEntity;
@@ -56,11 +57,13 @@ public class MainApplication extends Application {
 	public static String length;
 	public static String ImageUrl;
 	public static  String WEB_SERVER_URL;
+
 	@Override
 	public void onCreate() {
 		// TODO Auto-generated method stub
 		super.onCreate();
 		mContext = this;
+		CrashHandler.getInstance().init(this);
 		x.Ext.init(this);
 		DisplayMetrics dm = getResources().getDisplayMetrics();
 		mScreenW = dm.widthPixels;
@@ -80,6 +83,7 @@ public class MainApplication extends Application {
 				Mod_disease.class, "isDisease = 'true'");
 //		String[] nameStrings="".split(",");
 //		System.out.println(nameStrings);
+
 	}
 
 	public static AccountListEntity getCurUserinfo() {

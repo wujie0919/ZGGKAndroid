@@ -1,11 +1,11 @@
 package com.zggk.zggkandroid.utils;
 
-import java.io.File;
+import android.content.Context;
+import android.os.Environment;
 
 import com.zggk.zggkandroid.MainApplication;
 
-import android.content.Context;
-import android.os.Environment;
+import java.io.File;
 
 public class FileUtils {
 
@@ -16,6 +16,8 @@ public class FileUtils {
 
 	private final static String CACHE_FOLDER = File.separator + ROOT_FOLDER
 			+ File.separator + "cache" + File.separator;
+	private final static String LOG_FOLDER = File.separator + ROOT_FOLDER
+			+ File.separator + "logs" + File.separator;
 	private final static String TEMP_FOLDER = File.separator + ROOT_FOLDER
 			+ File.separator + "temp" + File.separator;
 	private final static String DOWNLOAD_FOLDER = File.separator + ROOT_FOLDER
@@ -47,6 +49,15 @@ public class FileUtils {
 
 	public static String getTempPath() {
 		String path = getRootPath() + TEMP_FOLDER;
+		File file = new File(path);
+		if (!file.exists()) {
+			file.mkdirs();
+		}
+		return path;
+	}
+
+	public static String getCrashDirectory(){
+		String path = getRootPath() + LOG_FOLDER;
 		File file = new File(path);
 		if (!file.exists()) {
 			file.mkdirs();
