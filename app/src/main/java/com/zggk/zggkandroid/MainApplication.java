@@ -89,6 +89,10 @@ public class MainApplication extends Application {
 	}
 
 	public static AccountListEntity getCurUserinfo() {
+		if (mCurAccounInfo==null)
+		{
+			mCurAccounInfo=new AccountListEntity();
+		}
 		return mCurAccounInfo;
 	}
 
