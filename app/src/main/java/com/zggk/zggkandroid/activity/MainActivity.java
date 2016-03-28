@@ -338,7 +338,7 @@ public class MainActivity extends FragmentActivity implements ChangePage,
                 dismissDialog();
                 break;
             case R.id.tv_main_checkAll:
-//                mFM_patrolHistory.checkAll();
+                mFM_patrolHistory.checkAll();
                 String text = mTv_checkAll.getText().toString();
                 if ("全选".equals(text)) {
                     mTv_checkAll.setText("取消全选");
