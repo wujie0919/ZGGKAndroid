@@ -801,7 +801,8 @@ public class fm_patrolHistory extends Fragment implements View.OnClickListener,M
                             public void onSuccess(String result) {
                                 lock.unlock();
                                 if (result.equals("1")){
-                                    if (num == dissIdArray.size()) {
+                                    int count=num;
+                                    if (count == dissIdArray.size()) {
                                         if (list.size()>0 && records.size()>0){
                                             uploadDmDinspRecord(list, records, recordDiss, new SendDataSuccessCallBack() {
                                                 @Override
@@ -814,10 +815,12 @@ public class fm_patrolHistory extends Fragment implements View.OnClickListener,M
                                             uploadDmFinspRecord(finspsList, finspRecordsList, finspDiss);
                                         }
 
+                                    }else{
+                                        Toast.makeText(x.app(), "上传失败，请保持网络畅通并重新上传，如果数据量大请分批上传！", Toast.LENGTH_LONG).show();
                                     }
+                                }else{
+                                    Toast.makeText(x.app(), "上传失败，请保持网络畅通并重新上传，如果数据量大请分批上传！", Toast.LENGTH_LONG).show();
                                 }
-
-                                Toast.makeText(x.app(), result, Toast.LENGTH_LONG).show();
                             }
 
                             @Override
@@ -835,7 +838,7 @@ public class fm_patrolHistory extends Fragment implements View.OnClickListener,M
 
                             @Override
                             public void onFinished() {
-                                Toast.makeText(x.app(), "cancelled", Toast.LENGTH_LONG).show();
+
                             }
                         });
                     }
