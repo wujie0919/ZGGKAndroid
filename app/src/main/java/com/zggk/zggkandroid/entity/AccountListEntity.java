@@ -1,6 +1,8 @@
 package com.zggk.zggkandroid.entity;
 
-public class AccountListEntity {
+import java.io.Serializable;
+
+public class AccountListEntity implements Serializable{
 
 	private String ORG_NAME,USER_CODE,ID,PASSWORD,USER_NAME,ORG_ID,UNT_NAME,ORG_NAME_EN;
 	

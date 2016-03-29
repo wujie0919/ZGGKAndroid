@@ -57,7 +57,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Created by xsh on 2016/3/23.
  */
-public class fm_patrolHistory extends Fragment implements View.OnClickListener,MainActivity.GetListCallBack {
+public class fm_patrolHistory extends Fragment implements View.OnClickListener, MainActivity.GetListCallBack {
 
     private Context mContext;
     private View mView;
@@ -217,7 +217,7 @@ public class fm_patrolHistory extends Fragment implements View.OnClickListener,M
 
     @Override
     public void listCallBack() {
-        String sql="SELECT * FROM (SELECT * FROM Mod_disease ORDER BY id DESC) ORDER BY uploaded";
+        String sql = "SELECT * FROM (SELECT * FROM Mod_disease ORDER BY id DESC) ORDER BY uploaded";
         mList_data = DBHelperSingleton.getInstance().getData(sql,
                 Mod_disease.class);
         if (mList_data == null) {
@@ -408,7 +408,7 @@ public class fm_patrolHistory extends Fragment implements View.OnClickListener,M
                 ViewGroup.LayoutParams.WRAP_CONTENT);
     }
 
-    private void uploadDmDinspRecord(final List<DmDinsp> list, final List<DmDinspRecord> records, final List<DssImage> dissIdArray,SendDataSuccessCallBack callBack) {
+    private void uploadDmDinspRecord(final List<DmDinsp> list, final List<DmDinspRecord> records, final List<DssImage> dissIdArray, SendDataSuccessCallBack callBack) {
         if (list.size() > 0 && records.size() > 0) {
 //				WebServiceUtils.sendRiChangBingHai(list, records,
             WebServiceUtils.sendRiChangBingHai(list, records, dissIdArray,
@@ -688,8 +688,8 @@ public class fm_patrolHistory extends Fragment implements View.OnClickListener,M
                         + "%' OR landmarkStart LIKE '%" + keyWord
                         + "%' OR landmarkEnd LIKE '%" + keyWord
                         + "%' OR lineName LIKE '%" + keyWord + "%')");
-        if (diseasesList!=null){
-            if (diseasesList.size()<=0){
+        if (diseasesList != null) {
+            if (diseasesList.size() <= 0) {
                 Toast.makeText(MainApplication.mContext, "无符合条件数据", Toast.LENGTH_LONG).show();
             }
         }
@@ -699,18 +699,19 @@ public class fm_patrolHistory extends Fragment implements View.OnClickListener,M
     public interface SendDataSuccessCallBack {
         public void sendSuccess();
     }
-    private void sendLocalData(){
+
+    private void sendLocalData() {
         if (mList_checked.size() > 0) {
             final List<DmFinsp> finspsList = new ArrayList<DmFinsp>();
             final List<DmDinsp> list = new ArrayList<DmDinsp>();
             final List<DmFinspRecord> finspRecordsList = new ArrayList<DmFinspRecord>();
             final List<DssImage> dissIdArray = new ArrayList();
             final List<DmDinspRecord> records = new ArrayList<DmDinspRecord>();
-            final List<DssImage> finspDiss=new ArrayList<DssImage>();
-            final List<DssImage> recordDiss=new ArrayList<DssImage>();
+            final List<DssImage> finspDiss = new ArrayList<DssImage>();
+            final List<DssImage> recordDiss = new ArrayList<DssImage>();
             for (Integer iterable : mList_checked) {
                 Mod_disease disease = (Mod_disease) mList_data.get(iterable);
-                if (disease.getType()==0){
+                if (disease.getType() == 0) {
                     DmDinspRecord dinspRecord = (DmDinspRecord) DBHelperSingleton
                             .getInstance().getObject(DmDinspRecord.class,
                                     "bId='" + disease.getId() + "'");
@@ -745,7 +746,7 @@ public class fm_patrolHistory extends Fragment implements View.OnClickListener,M
                             }
                         }
                     }
-                }else{
+                } else {
                     DmFinspRecord finspRecord = (DmFinspRecord) DBHelperSingleton
                             .getInstance().getObject(
                                     DmFinspRecord.class,
@@ -792,7 +793,7 @@ public class fm_patrolHistory extends Fragment implements View.OnClickListener,M
                     i = i + 1;
                     final int num = i;
                     RequestParams params = new RequestParams(MainApplication.ImageUrl);
-					params.addBodyParameter("dssId",dssImage.getDssId());
+                    params.addBodyParameter("dssId", dssImage.getDssId());
                     File file = new File(dssImage.getFilePath());
                     if (file.exists() && file.length() > 0) {
                         params.addBodyParameter(dssImage.getFileName(), file);
@@ -832,7 +833,7 @@ public class fm_patrolHistory extends Fragment implements View.OnClickListener,M
                         });
                     }
                 }
-            }else{
+            } else {
                 uploadDmDinspRecord(list, records, recordDiss, new SendDataSuccessCallBack() {
                     @Override
                     public void sendSuccess() {
@@ -843,5 +844,22 @@ public class fm_patrolHistory extends Fragment implements View.OnClickListener,M
 
         }
     }
+
+    /**
+     * 全选
+     */
+    public void checkAll() {
+        if (checkedAll) {
+            mList_checked.clear();
+        } else {
+            for (int i = 0; i < mList_data.size(); i++) {
+                mList_checked.add(i);
+            }
+        }
+        mLvAdapter.notifyDataSetChanged();
+
+        checkedAll = !checkedAll;
+    }
+
 
 }
