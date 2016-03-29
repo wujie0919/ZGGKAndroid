@@ -801,16 +801,27 @@ public class fm_patrolHistory extends Fragment implements View.OnClickListener, 
                             @Override
                             public void onSuccess(String result) {
                                 lock.unlock();
-                                if (num == dissIdArray.size()) {
-                                    uploadDmDinspRecord(list, records, recordDiss, new SendDataSuccessCallBack() {
-                                        @Override
-                                        public void sendSuccess() {
+                                if (result.equals("1")){
+                                    int count=num;
+                                    if (count == dissIdArray.size()) {
+                                        if (list.size()>0 && records.size()>0){
+                                            uploadDmDinspRecord(list, records, recordDiss, new SendDataSuccessCallBack() {
+                                                @Override
+                                                public void sendSuccess() {
+
+                                                }
+                                            });
+                                        }
+                                        if (finspsList.size()>0 && finspRecordsList.size()>0){
                                             uploadDmFinspRecord(finspsList, finspRecordsList, finspDiss);
                                         }
-                                    });
 
+                                    }else{
+                                        Toast.makeText(x.app(), "上传失败，请保持网络畅通并重新上传，如果数据量大请分批上传！", Toast.LENGTH_LONG).show();
+                                    }
+                                }else{
+                                    Toast.makeText(x.app(), "上传失败，请保持网络畅通并重新上传，如果数据量大请分批上传！", Toast.LENGTH_LONG).show();
                                 }
-                                Toast.makeText(x.app(), result, Toast.LENGTH_LONG).show();
                             }
 
                             @Override
@@ -828,7 +839,7 @@ public class fm_patrolHistory extends Fragment implements View.OnClickListener, 
 
                             @Override
                             public void onFinished() {
-                                Toast.makeText(x.app(), "cancelled", Toast.LENGTH_LONG).show();
+
                             }
                         });
                     }
@@ -844,6 +855,22 @@ public class fm_patrolHistory extends Fragment implements View.OnClickListener, 
 
         }
     }
+    /**
+     * 全选
+     */
+    public void checkAll() {
+        if (checkedAll) {
+            mList_checked.clear();
+        } else {
+            for (int i = 0; i < mList_data.size(); i++) {
+                mList_checked.add(i);
+            }
+        }
+        mLvAdapter.notifyDataSetChanged();
+
+        checkedAll = !checkedAll;
+    }
+
 
     /**
      * 全选

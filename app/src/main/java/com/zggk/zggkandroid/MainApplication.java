@@ -7,7 +7,6 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.widget.ImageView;
 
@@ -74,8 +73,11 @@ public class MainApplication extends Application {
 		WEB_SERVER_URL = "http://121.8.234.83:17001/mems/xfservices/MyWebService";
 		initUIL();
 
-		length= SpUtils.getString("length","");
-		if (TextUtils.isEmpty(length)) SpUtils.putString("length","10");
+		length= SpUtils.getString("length","10");
+//		if (TextUtils.isEmpty(length)) {
+//			SpUtils.putString("length","10");
+//			length="10";
+//		}
 
 		createTable();
 //		deleteData();
@@ -87,6 +89,10 @@ public class MainApplication extends Application {
 	}
 
 	public static AccountListEntity getCurUserinfo() {
+		if (mCurAccounInfo==null)
+		{
+			mCurAccounInfo=new AccountListEntity();
+		}
 		return mCurAccounInfo;
 	}
 

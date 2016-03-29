@@ -242,6 +242,7 @@ public class InputRoutineInspection extends BaseActivity implements
 		if (mAction.equals("input")) {
 			Bundle b = getIntent().getBundleExtra("data");
 			mDisease = (Mod_disease) b.getSerializable("data");
+			if (mDisease==null) mDisease=new Mod_disease();
 			mRoute = mDisease.getRoute();
 			mType = mDisease.getType();
 			String fromList = mIntent.getStringExtra("fromList");
@@ -281,9 +282,11 @@ public class InputRoutineInspection extends BaseActivity implements
 			String id = getIntent().getStringExtra("id");
 			mDisease = (Mod_disease) DBHelperSingleton.getInstance().getObject(
 					Mod_disease.class, "id='" + id + "'");
+			if (mDisease==null) mDisease=new Mod_disease();
 			mRoute = (RouteEntity) DBHelperSingleton.getInstance()
 					.getObject(RouteEntity.class,
 							"LINE_ID='" + mDisease.getLineID() + "'");
+			if (mRoute==null) mRoute=new RouteEntity();
 			mDisease.setRoute(mRoute);
 			mDssType = (DssTypeEntity) DBHelperSingleton.getInstance()
 					.getObject(DssTypeEntity.class,
