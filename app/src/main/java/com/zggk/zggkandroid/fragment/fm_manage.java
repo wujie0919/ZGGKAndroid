@@ -12,12 +12,16 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TableRow;
+import android.widget.Toast;
 
 import com.zggk.zggkandroid.R;
 import com.zggk.zggkandroid.activity.Login;
 import com.zggk.zggkandroid.activity.SetLengthActivity;
 import com.zggk.zggkandroid.common.Constant;
+import com.zggk.zggkandroid.http.WebServiceUtils;
 import com.zggk.zggkandroid.utils.DataUtils;
+
+import org.ksoap2.serialization.SoapObject;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -106,9 +110,25 @@ public class fm_manage extends Fragment implements OnClickListener {
      * 更新基础数据
      */
     private void updateBaseData() {
-        DataUtils.getDiseaseType(getActivity());
-        DataUtils.getRouteList(getActivity());
-        DataUtils.getAccountInfo();
+        DataUtils.updateAccountInfo(new WebServiceUtils.HttpCallBack() {
+            @Override
+            public void callBack(SoapObject result) {
+                DataUtils.updateDiseaseType(mContext, new WebServiceUtils.HttpCallBack() {
+                    @Override
+                    public void callBack(SoapObject result) {
+                        DataUtils.updateRouteList(mContext, new WebServiceUtils.HttpCallBack() {
+                            @Override
+                            public void callBack(SoapObject result) {
+                                Toast.makeText(mContext, "更新成功", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                });
+            }
+        });
+//        DataUtils.getDiseaseType(getActivity());
+//        DataUtils.getRouteList(getActivity());
+//        DataUtils.getAccountInfo();
     }
 
     private Timer mTimer;

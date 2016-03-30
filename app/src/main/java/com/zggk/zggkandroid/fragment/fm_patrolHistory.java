@@ -217,7 +217,7 @@ public class fm_patrolHistory extends Fragment implements View.OnClickListener, 
 
     @Override
     public void listCallBack() {
-        String sql = "SELECT * FROM (SELECT * FROM Mod_disease ORDER BY id DESC) ORDER BY uploaded";
+        String sql = "SELECT * FROM (SELECT * FROM Mod_disease ORDER BY id DESC) ORDER BY uploaded DESC";
         mList_data = DBHelperSingleton.getInstance().getData(sql,
                 Mod_disease.class);
         if (mList_data == null) {
@@ -855,23 +855,6 @@ public class fm_patrolHistory extends Fragment implements View.OnClickListener, 
 
         }
     }
-    /**
-     * 全选
-     */
-    public void checkAll() {
-        if (checkedAll) {
-            mList_checked.clear();
-        } else {
-            for (int i = 0; i < mList_data.size(); i++) {
-                mList_checked.add(i);
-            }
-        }
-        mLvAdapter.notifyDataSetChanged();
-
-        checkedAll = !checkedAll;
-    }
-
-
     /**
      * 全选
      */

@@ -126,8 +126,11 @@ public class DiseaseList extends BaseActivity implements OnClickListener {
 	protected void onStart() {
 		// TODO Auto-generated method stub
 		super.onStart();
-		mList_data = DBHelperSingleton.getInstance().getDatas(
-				Mod_disease.class, "type=" + mType + " ORDER BY id DESC");
+//		mList_data = DBHelperSingleton.getInstance().getDatas(
+//				Mod_disease.class, "type=" + mType + " ORDER BY id DESC");
+		String sql = "SELECT * FROM (SELECT * FROM Mod_disease WHERE type="+mType+" ORDER BY id DESC) ORDER BY uploaded DESC";
+		mList_data = DBHelperSingleton.getInstance().getData(sql,
+				Mod_disease.class);
 		if (mList_data == null) {
 			mList_data = new ArrayList<Mod_disease>();
 		}
